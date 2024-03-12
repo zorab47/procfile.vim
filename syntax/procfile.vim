@@ -24,7 +24,11 @@ syn match procfileEnvSetting    /\s\S\+=\S\+/ contained contains=procfileEnvAssi
 syn match procfileEnvAssignment /=\S\+/       contained contains=procfileEnvOperator
 syn match procfileEnvOperator   /=/           contained
 
-syn match procfileVariable /\$\w\+/ contained
+syn match procfileVariable /\v\$\w+/ contained
+" Match variable w/brackets {} around it
+syn match procfileVariable /\v\$\{\w+\}/ contained
+" Match variable w/brackets {} around it and defaulting null/undefined/etc.
+syn match procfileVariable /\v\$\{\w+:[-=?+]\w+\}/ contained
 
 hi def link procfileBundle        Normal
 hi def link procfileComment       Comment
