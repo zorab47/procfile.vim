@@ -14,9 +14,9 @@ syn region procfileLine    start='^'      end='$' oneline contains=procfileComme
 syn region procfileComment start='#'      end='$' oneline contained
 syn region procfileBundle  start='bundle' end='$' oneline contained contains=procfileEnvSetting,procfileComment,procfileVariable
 
-syn match procfileName    /^\w\+:/ contained contains=procfileInvalidName,procfileValidName 
-syn region procfileInvalidName start='^' end=':'                          oneline contained
-syn region procfileValidName   start='^' end='\v\w+[_\w]?:' oneline contained
+syn match procfileName    /^[[:alnum:]_-]\+:/ contained contains=procfileInvalidName,procfileValidName
+syn region procfileInvalidName start='^' end=':'                    oneline contained
+syn region procfileValidName   start='^' end='\v\w+[[:alnum:]_-]?:' oneline contained
 
 syn region procfileEnv     start='env' end='$' oneline contained contains=procfileBundle,procfileEnvSetting,procfileEnvProg transparent
 syn keyword procfileEnvProg env contained
