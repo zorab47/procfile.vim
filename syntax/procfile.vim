@@ -16,7 +16,7 @@ syn region procfileBundle  start='bundle' end='$' oneline contained contains=pro
 
 syn match procfileName    /^\w\+:/ contained contains=procfileInvalidName,procfileValidName 
 syn region procfileInvalidName start='^' end=':'                          oneline contained
-syn region procfileValidName   start='^' end='\(web\|_worker\|_handler\|_scheduler\|_listener\):' oneline contained
+syn region procfileValidName   start='^' end='\v\w+[_\w]?:' oneline contained
 
 syn region procfileEnv     start='env' end='$' oneline contained contains=procfileBundle,procfileEnvSetting,procfileEnvProg transparent
 syn keyword procfileEnvProg env contained
